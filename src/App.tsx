@@ -1,11 +1,15 @@
 import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Menu from "./Component/Menu";
+import Chart from "./Component/Chart";
 export default function () {
+  const [exchange,SetExchange] = useState(null);
   return (
     <>
       <div className="absolute top-0 bg-gradient-to-br from-[#F5E3E6] to-[#D9E4F5] h-screen w-screen" />
       <AnimatePresence initial={true}>
-        <Menu/>
+        <Menu setExc={SetExchange}/>
+        {exchange !== null && <Chart exc={exchange}/>}
       </AnimatePresence>
     </>
   );
