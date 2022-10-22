@@ -8,17 +8,20 @@ export default function (props: any) {
   }, []);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
       className="backgr w-[90vw] min-w-[1200px] h-[900px] min-h-[900px] mx-auto rounded-lg relative z-10"
     >
       <div
         id="chart"
         className="absolute rounded-md mt-10 w-[98%] mx-auto left-0 right-0 h-[92%]"
       ></div>
-    </div>
+    </motion.div>
   );
 }
-
 
 function Chart(exc: string, sym: string) {
   const domElement = document.getElementById("chart");
@@ -58,7 +61,6 @@ function Chart(exc: string, sym: string) {
           });
         }
       });
-      console.log(cdata)
       candleSeries.setData(cdata);
       volumeSeries.setData(vdata);
     })

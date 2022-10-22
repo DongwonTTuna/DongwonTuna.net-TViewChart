@@ -5,7 +5,7 @@ import huobi from "../img/huobi.svg";
 import kucoin from "../img/kucoin.png";
 import mexc from "../img/mexc.png";
 import ftx from "../img/ftx.svg";
-import { useRef } from "react";
+import { useEffect, useState } from "react";
 
 const imgsrc: { [key: string]: string } = {
   BINANCE: binance,
@@ -18,14 +18,36 @@ const imgsrc: { [key: string]: string } = {
 };
 
 export default function (props: any) {
-  const divRef = useRef<HTMLDivElement>(null);
+  const [TickerList, SetTickerList] = useState<any>(null);
+  useEffect(() => {
+    SetTickerList(() => HighestVolume(props.exc, SetTickerList));
+  }, []);
+  useEffect(() => {console.log(TickerList)},[TickerList])
   return (
-    <div ref={divRef} className="backgr mx-auto w-[90vw] h-[150px] mb-8 flex">
-        <div className="flex ml-4 flex-col items-center justify-center">
-            <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
-            <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
-        </div>
-
+    <div className="backgr mx-auto w-[90vw] h-[150px] mb-8 flex">
+      <div className="flex ml-4 flex-col items-center justify-center">
+        <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
+        <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
+      </div>
+      <div className="grid grid-cols-10 ">
+        {TickerList !== null && TickerList !== undefined && TickerList.map((item: string, index: number) => {
+            if (index < 5){
+                return <div onClick={()=> {props.setTicker(item)}} className="cursor-pointer text-orange-600 bg-gradient-to-bl rounded-md p-1 text-center from-[#EC9F0580] to-[#FF4E0090]" key={item}>{item}</div>
+            }
+            return(
+                <div onClick={()=> {props.setTicker(item)}} className="cursor-pointer text-orange-400 bg-gradient-to-bl rounded-md p-1 text-center from-[#EC9F0540] to-[#FF4E0050]" key={item}>{item}</div>
+            )
+        })}
+      </div>
     </div>
   );
+}
+
+function HighestVolume(exchange: string, setState: any) {
+  const url = `https://api.dongwontuna.net/highestvol?exchange=${exchange}`;
+  let data: string[] = [];
+
+  fetch(url)
+    .then((res) => res.json())
+    .then((res) => setState(res.data));
 }
