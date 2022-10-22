@@ -10,3 +10,13 @@
     background-color: rgba(255, 255, 255, 0.35);  
   }
 }
+
+@layer components {
+  .menuclicked {
+    @apply rounded-xl p-4 transition-colors duration-500;
+  }
+  .menuprop{
+    @apply rounded-xl p-4 transition-colors duration-500;
+  }
+
+}
