@@ -18,7 +18,7 @@ export default function (props: any){
 
 
     return (
-        <motion.div initial={{opacity: 0}} animate={{opacity:1}} transition={{duration:2}} className='backgr mb-10 w-[90vw] min-w-[1200px] h-[140px] mx-auto mt-10 bg-[rgba(255,255,255)] rounded-lg flex items-center justify-between'>
+        <motion.div initial={{opacity: 0}} animate={{opacity:1}} transition={{duration:2}} className='backgr mb-8 w-[90vw] min-w-[1200px] h-[140px] mx-auto mt-10 bg-[rgba(255,255,255)] rounded-lg flex items-center justify-between'>
             <div/>
             {Object.keys(imgsrc).map((item,index: number)=>{
                     return (
