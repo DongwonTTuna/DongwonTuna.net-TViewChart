@@ -10,6 +10,7 @@ export default function (props: any) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
+      className="-z-10"
     >
       <Chartmenu key={props.exc} exc={props.exc} setTicker={SetChartTicker} />
       <AnimatePresence mode={"wait"} initial={true}>

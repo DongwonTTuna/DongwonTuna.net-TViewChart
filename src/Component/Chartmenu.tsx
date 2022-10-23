@@ -5,7 +5,7 @@ import huobi from "../img/huobi.svg";
 import kucoin from "../img/kucoin.png";
 import mexc from "../img/mexc.png";
 import ftx from "../img/ftx.svg";
-import SearchBox from "./SearchBox";
+import SearchBox from "./SearchBox.jsx";
 import { useEffect, useState } from "react";
 
 const imgsrc: { [key: string]: string } = {
@@ -24,12 +24,12 @@ export default function (props: any) {
     SetTickerList(() => HighestVolume(props.exc, SetTickerList));
   }, []);
   return (
-    <div className="backgr mx-auto w-[90vw] min-w-[1200px] h-[150px] mb-8 flex relative justify-between">
+    <div className="backgr mx-auto w-[90vw] min-w-[1200px] h-[150px] mb-8 flex relative justify-between z-10">
       <div className="flex flex-col items-center justify-center ml-6">
         <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
         <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
       </div>
-        <div className="z-50 w-96 mt-14">
+        <div className=" w-96 mt-14 relative">
           <SearchBox exc={props.exc} setSym={props.setTicker} />
         </div>
 
