@@ -13,7 +13,7 @@ export default function (props: any) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
-      className="backgr w-[90vw] min-w-[1200px] h-[900px] min-h-[900px] mx-auto rounded-lg"
+      className="backgr w-[90vw] min-w-[1200px] h-[60%] min-h-[400px] mx-auto rounded-lg overflow-hidden"
     >
       <div
         id="chart"
