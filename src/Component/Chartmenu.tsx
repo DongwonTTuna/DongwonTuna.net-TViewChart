@@ -25,13 +25,20 @@ export default function (props: any) {
   }, []);
   return (
     <div className="backgr mx-auto w-[90vw] min-w-[1200px] h-[150px] mb-8 flex relative justify-between z-10">
-      <div className="flex flex-col items-center justify-center ml-6">
-        <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
-        <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
-      </div>
-        <div className=" w-96 mt-14 relative">
-          <SearchBox exc={props.exc} setSym={props.setTicker} />
+      <div className="flex items-center justify-between w-80">
+        <div className="flex flex-col items-center justify-center ml-6">
+          <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
+          <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
         </div>
+        <div className="flex items-center justify-center border-[2px] border-slate-500 w-fit min-w-[110px] h-[50px] rounded-lg">
+          <p className="text-xl  text-slate-500  text-center">
+            {props.sym}
+          </p>
+        </div>
+      </div>
+      <div className="w-96 mt-14 relative">
+        <SearchBox exc={props.exc} setSym={props.setTicker} />
+      </div>
 
       <div className="grid grid-cols-5 items-center justify-center gap-x-2 mr-2 min-w-[600px]">
         {TickerList !== null && TickerList !== undefined && (

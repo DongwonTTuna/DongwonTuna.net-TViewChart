@@ -12,7 +12,7 @@ export default function (props: any) {
       transition={{ duration: 0.3 }}
       className="-z-10 h-full"
     >
-      <Chartmenu key={props.exc} exc={props.exc} setTicker={SetChartTicker} />
+      <Chartmenu key={props.exc} exc={props.exc} setTicker={SetChartTicker}  sym={sym}/>
       <AnimatePresence mode={"wait"} initial={true}>
         <Chart key={sym} exc={props.exc} sym={sym} />
       </AnimatePresence>
