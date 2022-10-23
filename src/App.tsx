@@ -7,7 +7,7 @@ export default function () {
   const [exchange, SetExchange] = useState(null);
   return (
     <>
-      <div className="absolute top-0 bg-gradient-to-br from-[#F5E3E6] to-[#D9E4F5] h-screen w-screen" />
+      <div className="absolute top-0 bg-gradient-to-br from-[#F5E3E6] to-[#D9E4F5] h-screen w-screen z-[-2]" />
       <Menu setExc={SetExchange} />
       <AnimatePresence mode={"wait"} initial={true}>
         {exchange !== null && <ChartTop key={exchange} exc={exchange}/>}

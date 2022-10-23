@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+html{
+  overflow: hidden;
+}
+
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   .backgr {
     -webkit-backdrop-filter: blur(10px);

@@ -3,7 +3,7 @@ import Chartmenu from "./Chartmenu";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 export default function (props: any) {
-  const [sym, SetChartTicker] = useState("BTCUSDT");
+  const [sym, SetChartTicker] = useState(props.exc ==="UPBIT" ? "KRWBTC" : "BTCUSDT");
   return (
     <motion.div
       initial={{ opacity: 0 }}
