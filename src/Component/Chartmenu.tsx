@@ -20,20 +20,19 @@ export default function (props: any) {
     SetTickerList(() => HighestVolume(props.exc, SetTickerList));
   }, []);
   return (
-    <div className="backgr mx-auto w-[90vw] min-w-[1200px] h-[150px] mb-8 flex relative justify-between z-10">
-      <div className="flex items-center justify-between w-80">
-        <div className="flex flex-col items-center justify-center ml-6">
-          <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
-          <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
-        </div>
-        <div className="flex items-center justify-center border-[2px] border-slate-500 w-fit min-w-[110px] h-[50px] rounded-lg">
-          <p className="text-xl  text-slate-500  text-center">
-            {props.sym}
-          </p>
-        </div>
+    <div className="backgr mx-auto w-[90vw] min-w-[1200px] h-[150px] mb-8 flex relative justify-between z-10 items-center">
+      <div className="flex flex-col items-center justify-center ml-6">
+        <img src={imgsrc[props.exc]} className="w-24 h-24 mt-3" />
+        <p className="text-xl mt-2 text-slate-500">{props.exc}</p>
       </div>
-      <div className="w-96 mt-14 relative">
-        <SearchBox exc={props.exc} setSym={props.setTicker} />
+
+      <div className="w-full flex items-center 2xl:justify-around 2xl:flex-row flex-col justify-around h-32 text-center">
+        <div className="flex items-center justify-center border-[2px] border-slate-500 w-fit min-w-[110px] h-[50px] rounded-lg">
+          <p className="text-xl  text-slate-500">{props.sym}</p>
+        </div>
+        <div className="w-[60%] relative">
+          <SearchBox exc={props.exc} setSym={props.setTicker} />
+        </div>
       </div>
 
       <div className="grid grid-cols-5 items-center justify-center gap-x-2 mr-2 min-w-[600px]">
