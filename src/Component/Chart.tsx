@@ -31,8 +31,9 @@ function Chart(exc: string, sym: string) {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      if (data.status !== 200) return;
       console.log(data)
+      if (data.status !== 200) return;
+      
       let cdata: Array<any> = [];
       let vdata: Array<any> = [];
 
@@ -84,4 +85,10 @@ function Chart(exc: string, sym: string) {
     },
     priceScaleId: "",
   });
+  volumeSeries.priceScale().applyOptions({
+    scaleMargins:{
+      top:0.9,
+      bottom:0
+    }
+  })
 }
