@@ -5,11 +5,9 @@ import upbit from '../img/upbit.svg'
 import gateio from '../img/gateio.svg'
 import huobi from '../img/huobi.svg'
 import kucoin from '../img/kucoin.png'
-import mexc from  '../img/mexc.png'
-import ftx from '../img/ftx.svg'
 
 
-const imgsrc : {[key : string]: string} = {'BINANCE': binance, 'UPBIT': upbit, 'GATEIO': gateio, 'HUOBI': huobi,'KUCOIN': kucoin, 'FTX': ftx, 'MEXC': mexc}
+const imgsrc : {[key : string]: string} = {'BINANCE': binance, 'UPBIT': upbit, 'GATEIO': gateio, 'HUOBI': huobi,'KUCOIN': kucoin }
 
 export default function (props: any){
 
