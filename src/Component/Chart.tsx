@@ -32,6 +32,7 @@ function Chart(exc: string, sym: string) {
     .then((res) => res.json())
     .then((data) => {
       if (data.status !== 200) return;
+      console.log(data)
       let cdata: Array<any> = [];
       let vdata: Array<any> = [];
 
@@ -82,9 +83,5 @@ function Chart(exc: string, sym: string) {
       type: "volume",
     },
     priceScaleId: "",
-    scaleMargins: {
-      top: 0.85,
-      bottom: 0,
-    },
   });
 }
